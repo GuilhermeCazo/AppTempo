@@ -27,14 +27,20 @@ namespace AppTempo
             {
                 if (!String.IsNullOrEmpty(cidadeEntry.Text))
                 {
+                    Console.WriteLine("____________________________");
+
                     Tempo previsaoDoTempo = await DataService.GetPrevisaoDoTempo(cidadeEntry.Text);
+
+                    
+                    //Console.WriteLine(previsaoDoTempo.ToString());
+                    
                     this.BindingContext = previsaoDoTempo;
                     btnPrevisao.Text = "Nova Previsao";
                 }
             } 
             catch (Exception ex)
             {
-                await DisplayAlert("Erro", ex.Message, "OK");
+                await DisplayAlert("Erro aqui", ex.Message, "OK");
 
             }
 
